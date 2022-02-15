@@ -6,7 +6,6 @@
 		<description>RSS feed for {{ site_title }}</description>
 		<atom:link href="{{ base_url }}/feed" rel="self" type="application/rss+xml" />
 		{% for page in pages %}
-			{% if page.date %}
 			<item>
 				<title>{{ page.title }}</title>
 				<description><![CDATA[{{ page.content }}]]></description>
@@ -14,7 +13,6 @@
 				<pubDate>{{ page.date|date("D, d M Y H:i:s O") }}</pubDate>
 				<guid>{{ page.url }}</guid>
 			</item>
-			{% endif %}
 		{% endfor %}
 	</channel>
 </rss>
