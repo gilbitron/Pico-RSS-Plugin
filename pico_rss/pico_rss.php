@@ -28,7 +28,7 @@ class Pico_Rss {
 	public function get_pages(&$pages, &$current_page, &$prev_page, &$next_page)
 	{
 		// Limit feed to latest 10 posts
-		if($this->is_feed) $pages = array_slice($pages, 0, 10);
+		if($this->is_feed) $pages = array_slice(array_reverse(array_filter($pages, function($p) {return $p['date'];})), 0, 10);
 	}
 	
 	public function before_render(&$twig_vars, &$twig)
